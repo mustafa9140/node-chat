@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-    socket.on('message', (msg)=>console.log(msg))
+    socket.on('message', (msg) => io.emit('message', msg))
 })
 
 http.listen(3000, () => console.log('listening on 3000'))
